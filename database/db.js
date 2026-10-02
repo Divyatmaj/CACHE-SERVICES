@@ -16,4 +16,8 @@ async function delayReadData() {
     return await readData();
 }
 
-module.exports = { readData, delayReadData };
+async function writeData(data) {
+    await fs.writeFile(PATH_TO_DB, JSON.stringify(data, null, 2), 'utf-8');
+}
+
+module.exports = { readData, delayReadData, writeData };
